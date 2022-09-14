@@ -1,7 +1,6 @@
 package br.com.dio.digital_java.exercicio.aula05_framework_collections;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ExemploList {
     public static void main(String[] args) {
@@ -24,6 +23,41 @@ public class ExemploList {
         for (Double nota : notas){
             System.out.println(nota);
         }
+        System.out.println("Exiba a 2º nota added:"+notas.get(2));
+        System.out.println("A menor nota é: "+ Collections.min(notas));
+        System.out.println("A maior nota é: "+ Collections.max(notas));
+        Iterator<Double> iterator = notas.iterator();
+        Double soma = 0d;
+        while (iterator.hasNext()){
+            Double next = iterator.next();
+            soma+=next;
+        }
+        System.out.println("A soma das notas é: "+ soma);
+        System.out.println("A média das notas é: "+ soma/notas.size());
+        System.out.println("Remova a nota 3");
+        notas.remove(notas.indexOf(3d));
+
+        System.out.println("Remova as ntoas menores do que 7");
+        Iterator<Double> iterator1= notas.iterator();
+        while (iterator1.hasNext()){
+            if (iterator1.next()<7){
+                iterator1.remove();
+            }
+        }
+        System.out.println("Notas sem elementos menores do que 7: "+notas);
+        System.out.println("Apague a lista");
+        notas.clear();
+        System.out.println("A lista está vazia?: "+ notas.isEmpty());
+        System.out.println("Crie uma lista chamada Notas com uma lista ligada");
+        List<Double> notaLigada = new LinkedList<>();
+        notaLigada.add(7.0);
+        notaLigada.add(2d);
+        notaLigada.add(9.5);
+        notaLigada.add(2.3);
+        System.out.println("Mostre a primeira nota da lista sem removê-la: "+notaLigada.get(0));
+        System.out.println("Mostre a primeira nota da lista removendo-a: "+notaLigada);
+        notaLigada.remove(0);
+        System.out.println("Mostre a primeira nota da lista removendo-a: "+notaLigada);
 
 
 
