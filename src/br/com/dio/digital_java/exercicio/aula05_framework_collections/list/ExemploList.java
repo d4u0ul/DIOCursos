@@ -4,6 +4,13 @@ import java.util.*;
 
 public class ExemploList {
     public static void main(String[] args) {
+        //List<Double> testeArray = new ArrayList<>(Arrays.asList(7d,8.5,9.3,5d,7d,0d,3.6,7d));
+        List<Double> testeArray = new ArrayList<>(Arrays.asList(7d,8.5,9.3,5d,7d,0d,3.6,7d));
+        System.out.println("testeArray: "+testeArray);
+        testeArray.add(15d);
+        System.out.println("testeArray: "+testeArray);
+        testeArray.remove(15d);
+        System.out.println("testeArray: "+testeArray);
         System.out.println("Crie uma lista de notas e add 7, 8.5 e 9");
         List<Double> notas = new ArrayList<Double>();
         notas.add(7d);
