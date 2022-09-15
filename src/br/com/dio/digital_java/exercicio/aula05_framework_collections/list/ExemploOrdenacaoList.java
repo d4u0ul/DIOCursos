@@ -1,4 +1,4 @@
-package br.com.dio.digital_java.exercicio.aula05_framework_collections;
+package br.com.dio.digital_java.exercicio.aula05_framework_collections.list;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,24 +29,31 @@ public class ExemploOrdenacaoList {
         Collections.shuffle(meusGatos);
         System.out.println("Imprimindo na ordem alatória: "+ meusGatos);
 
-        System.out.println("Imprimindo na ordem nominal: "+ meusGatos);
+        System.out.println("Imprimindo na ordem nominal antes: "+ meusGatos);
         Collections.sort(meusGatos);//utilizando a interface comparable que é implementada na própria classe
         System.out.println(meusGatos);
 
-        System.out.println("Imprimindo na ordem idade: "+ meusGatos);
-        Collections.sort(meusGatos, new ComparatorIdade());//utilizando a interface comparable que é implementada na própria classe
+        System.out.println("Imprimindo na ordem idade antes: "+ meusGatos);
+        Collections.sort(meusGatos, new ComparatorIdade());//utilizando a interface comparator que é implementada em outra classe ComparatorIdade
         //ou tbm dá pra usar meusGatos.sort(new ComparatorIdade()):
         System.out.println(meusGatos);
 
-        System.out.println("Imprimindo na ordem cor: "+ meusGatos);
-        Collections.sort(meusGatos, new ComparatorCor());//utilizando a interface comparable que é implementada na própria classe
+        System.out.println("Imprimindo na ordem cor antes: "+ meusGatos);
+        Collections.sort(meusGatos, new ComparatorCor());//utilizando a interface comparator que é implementada em outra classe ComparatorCor
         //ou tbm dá pra usar meusGatos.sort(new ComparatorCor()):
         System.out.println(meusGatos);
 
-        System.out.println("Imprimindo na ordem Nome/Cor/Idade: "+ meusGatos);
-        Collections.sort(meusGatos, new ComparatorNomeCorIdade());//utilizando a interface comparable que é implementada na própria classe
+        System.out.println("Imprimindo na ordem Nome/Cor/Idade antes: "+ meusGatos);
+        Collections.sort(meusGatos, new ComparatorNomeCorIdade());//utilizando a interface comparator que é implementada em outra classe ComparatorNomeCorIdade
         //ou tbm dá pra usar meusGatos.sort(new ComparatorNomeCorIdade()):
         System.out.println(meusGatos);
+
+
+        System.out.println("Imprimindo na ordem Nome/Idade/Cor pelo comparing/thenComparing antes: "+ meusGatos);
+        //ou tbm dá pra usar meusGatos.sort(new ComparatorNomeCorIdade()):
+        meusGatos.sort(Comparator.comparing(Gato::getNome).thenComparing(Gato::getIdade).thenComparing(Gato::getCor));
+        System.out.println(meusGatos);
+
 
 
     }
@@ -109,7 +116,6 @@ class ComparatorCor implements Comparator<Gato>{
         return (o1.getCor().compareToIgnoreCase(o2.getCor()));
     }
 }
-
 class ComparatorNomeCorIdade implements Comparator<Gato>{
 
     @Override

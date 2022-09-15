@@ -1,4 +1,4 @@
-package br.com.dio.digital_java.exercicio.aula05_framework_collections;
+package br.com.dio.digital_java.exercicio.aula05_framework_collections.list;
 
 import java.util.*;
 
