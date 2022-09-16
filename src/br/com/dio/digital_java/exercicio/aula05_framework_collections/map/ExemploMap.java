@@ -1,9 +1,6 @@
 package br.com.dio.digital_java.exercicio.aula05_framework_collections.map;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class ExemploMap {
     public static void main(String[] args) {
@@ -48,7 +45,6 @@ public class ExemploMap {
         System.out.println("Exiba os consumos dos carros como uma Collection: "+ carrosPopulares2020.values());
         //values retorna uma collection de todos os valores, logo é possível utilizar todos os métodos das collections como min, max e reverse
 
-        System.out.println("O máximo consumo é: "+ Collections.min(carrosPopulares2020.values())); // o carro menos eficiente faz a menor qtde de km/l
 
         Double consumoMaisEficiente = Collections.max(carrosPopulares2020.values());
         System.out.println("O consumo mais eficiente é: "+ consumoMaisEficiente);// mas aqui retorna o valor e não o par chave e valor
@@ -70,6 +66,49 @@ public class ExemploMap {
                 System.out.println("O modelo mais eficiente é o:" + modeloMaisEficiente + "e o seu consumo é:" + carrosPopulares2020.get(modeloMaisEficiente));
             }
         }
+
+        Double consumoMenosEficiente = Collections.min(carrosPopulares2020.values());
+        System.out.println("O máximo consumo é: "+ consumoMenosEficiente); // o carro menos eficiente faz a menor qtde de km/l
+        String modeloMenosEficiente = "";
+        for(Map.Entry<String,Double> entry: entries){
+            if (entry.getValue().equals(consumoMenosEficiente)){
+                modeloMenosEficiente = entry.getKey();
+                System.out.println("modelo menos eficiente é: "+modeloMenosEficiente +" com um, consumo de "+entry.getValue());
+            }
+        }
+        Double soma = 0.0;
+        Iterator<Double> iterator = carrosPopulares2020.values().iterator();
+        while (iterator.hasNext()){
+            soma+=iterator.next();
+        }
+        System.out.println("A soma dos consumos é de: "+soma);
+
+        System.out.println("A média dos consumos do dicionário é de: "+soma/entries.size());
+
+        System.out.println("Remova os modelos com o consumo igual a 15.6");
+        System.out.println(carrosPopulares2020);
+        Iterator<Double> iterator1 = carrosPopulares2020.values().iterator();
+        while (iterator1.hasNext()){
+            if (iterator1.next()==15.6) iterator1.remove();
+        }
+        System.out.println(carrosPopulares2020);
+
+        System.out.println("Exiba os carros na ordem em que foram informados:");
+        Map<String, Double> carrosPopulares2020OrdemInsercao = new LinkedHashMap<>(){{
+            put("gol" , 14.4) ;
+            put("uno" , 15.6) ;
+            put("mobi", 16.1) ;
+            put("hb20", 14.5) ;
+            put("kwid", 15.6) ;
+        }};
+        System.out.println("carrosPopulares2020OrdemInsercao: "+carrosPopulares2020OrdemInsercao);
+
+        System.out.println("Exiba os carros na ordem dos nomes dos carros:");
+        Map<String, Double> carrosPopulares2020OrdemModelo = new TreeMap<>(carrosPopulares2020OrdemInsercao);
+        System.out.println("carrosPopulares2020OrdemModelo: "+carrosPopulares2020OrdemModelo);
+        System.out.println("Apague o dicionário: "+carrosPopulares2020);
+        carrosPopulares2020.clear();
+        System.out.println("Dicionário apagado: "+carrosPopulares2020);
 
 
 
