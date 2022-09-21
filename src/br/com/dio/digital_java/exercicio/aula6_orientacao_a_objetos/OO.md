@@ -318,3 +318,59 @@ Define um contrato que deve ser seguido pela classe que a implementa. QUando uma
 ### Exercicio
 
 Codifique uma interface OpMatematica que faz um contrato de criação das 4 operações;
+
+
+# AULA 6 Organização
+
+## - PACOTES
+
+"São uma organização física ou lógica criada para separar
+classes com responsabilidades distintas. Com isso,
+espera-se que a aplicação fique mais organizada
+e seja possível separar classes de finalidades
+e representatividades diferentes."
+
+Pacotes são pastas e subpastas que devem manter uma organização física e lógica para separar responsabilidades distintas.
+
+
+### Como que faz?
+
+![img_33.png](img_33.png)
+
+## - VISIBILIDADE
+
+"Um modificador de acesso tem como finalidade determinar até
+que ponto uma classe, atributo ou método pode ser usado. A
+utilização de modificadores de acesso é fundamental para o
+uso efetivo da Orientação a Objetos. Algumas boas práticas e
+conceitos só são atingidos com o uso corretos deles."
+
+Tipos:
+
+Em python, tudo é público
+
+![img_34.png](img_34.png)
+
+Para Java e C#
+- Private
+Só é visível dentro da classe
+
+![img_35.png](img_35.png)
+
+- Protected
+
+![img_36.png](img_36.png)
+
+- Public
+
+![img_37.png](img_37.png)
+
+
+Entender:
+
+# - Padrões de Projeto(Desing Patterns)
+# - Boa práticas: SOLID,  código, tecnicas de programação, etc.
+# - Refatoração
+# - UML
+# - Frameworks
+# - MUITA prática e estudo!
